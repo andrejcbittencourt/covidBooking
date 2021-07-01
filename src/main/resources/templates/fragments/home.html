@@ -1,0 +1,40 @@
+<!-- home header -->
+<head th:fragment="homeHead" th:remove="tag">
+    <link rel="stylesheet" th:href="@{/css/homeStyle.css}"/>
+</head>
+
+<!-- home body -->
+    <div id="homeCard" class="card mx-auto" th:fragment="homeBody(data)">
+        <div class="card-header">
+            <h4>Procedure for your COVID-19 test</h4>
+        </div>
+        <div class="card-body">
+            <dl>
+                <dt><i class="fas fa-calendar-alt"></i> Book an appointment</dt>
+                <dd>Log in on this page.<br/>Then select the date and time for your test.</dd>
+                <dt><i class="fas fa-id-card"></i> Before leaving home</dt>
+                <dd>Remember to bring a face mask and your yellow health card (‘sundhedskort’).<br/>
+                    If you do not have a yellow health card, you must bring photo ID (passport, driver’s licence or identity card).<br/>
+                    You should arrive as close to the scheduled appointment as possible to avoid the spread of infection.<br/>
+                    <br/>
+                    Follow the guidelines from Danish Health Authority to protect yourself and others from infection.<br/>
+                    <a href="https://www.sst.dk/en/English">See the guidelines</a>
+                </dd>
+                <dt><i class="fas fa-head-side-mask"></i> When you arrive</dt>
+                <dd>When you arrive, you must follow the instructions at the testing site.<br/>You will then have the sample taken.</dd>
+                <dt><i class="fas fa-vial"></i> Test result</dt>
+                <dd>
+                    You can subsequently see your test result on sundhed.dk, in MinSundhed app or in MinLæge app.<br/>
+                    You can also see your child’s test result on sundhed.dk<br/>
+                    <a href="https://www.sundhed.dk/">See your test result</a><br/>
+                    <br/>
+                    When you have been tested for COVID-19, you can usually see your test result the day after you have had the test – and no later than two days after.<br/>
+                    If you have not received an answer within two days after the test has taken place, you are encouraged to make an appointment for a new test.
+                </dd>
+            </dl>
+        </div>
+    </div>
+
+<!-- home scripts -->
+<div th:fragment="homeScripts(data)" th:remove="tag">
+</div>

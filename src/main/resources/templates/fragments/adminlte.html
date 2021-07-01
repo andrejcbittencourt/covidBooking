@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+                xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:fragment="adminlteHead(data)" th:remove="tag">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" th:href="@{/img/favicon.ico}">
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback"/>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" th:href="@{/plugins/fontawesome-free/css/all.min.css}"/>
+    <!-- Theme style -->
+    <link rel="stylesheet" th:href="@{/css/adminlte.min.css}"/>
+    <!-- fragment styles -->
+    <link th:replace='${"fragments/"+data.get("template")} :: ${data.get("template")+"Head"}'/>
+</head>
+<body class="hold-transition layout-top-nav" th:fragment="adminlteBody(data)">
+    <div class="wrapper">
+
+        <!-- Navbar -->
+        <nav th:replace="fragments/navbarMenu :: navbarMenu"></nav>
+        <!-- /.navbar -->
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <div th:if='${data.get("page") != null}' class="content-header">
+                <div class="container">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1 class="m-0" th:text='${data.get("page")}'>page</h1>
+                            <h5 th:if='${data.get("controlUser") != null}' th:text='${data.get("controlUser")}'></h5>
+                        </div><!-- /.col -->
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item" th:if='${!data.get("page").equals("Home")}'><a href="/">Home</a></li>
+                                <li class="breadcrumb-item active" th:text='${data.get("page")}'>page</li>
+                            </ol>
+                        </div><!-- /.col -->
+                    </div><!-- /.row -->
+                </div><!-- /.container-fluid -->
+            </div>
+            <!-- /.content-header -->
+
+            <!-- Main content -->
+            <div class="content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div th:replace='${"fragments/"+data.get("template")} :: ${data.get("template")+"Body"}(data=${data})'></div>
+                        </div>
+                        <!-- /.col-lg-12 -->
+                    </div>
+                    <!-- /.row -->
+                </div><!-- /.container-fluid -->
+            </div>
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+
+        <!-- Main Footer -->
+        <footer class="main-footer">
+            <!-- To the right -->
+            <div class="float-right d-none d-sm-inline">
+                André Bittencourt &
+                Snorri Sigurjonsson
+            </div>
+            <!-- Default to the left -->
+            <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+        </footer>
+    </div>
+    <!-- ./wrapper -->
+
+    <!-- REQUIRED SCRIPTS -->
+
+    <!-- jQuery -->
+    <script th:src="@{/plugins/jquery/jquery.min.js}"></script>
+    <!-- Bootstrap 4 -->
+    <script th:src="@{/plugins/bootstrap/js/bootstrap.bundle.min.js}"></script>
+    <!-- jQuery UI -->
+    <script th:src="@{/plugins/jquery-ui/jquery-ui.min.js}"></script>
+    <!-- AdminLTE App -->
+    <script th:src="@{/js/adminlte.min.js}"></script>
+    <!-- fragment scripts -->
+    <script th:replace='${"fragments/"+data.get("template")} :: ${data.get("template")+"Scripts"}(data=${data})'></script>
+    <!-- dark mode switch -->
+    <script th:replace="fragments/navbarMenu :: navbarMenuScripts"></script>
+</body>
+</html>

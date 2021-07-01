@@ -1,0 +1,11 @@
+@media (min-width: 768px) {
+    #homeCard {
+        width: 60%;
+    }
+}
+
+@media (max-width: 768px) {
+    #homeCard {
+        width: 100%;
+    }
+}
